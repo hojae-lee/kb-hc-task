@@ -23,11 +23,12 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@app/*": ["./src/app/*"],
-      "@api/*": ["./src/api/*"],
-      "@provider/*": ["./src/provider/*"],
-      "@mocks/*": ["./src/mocks/*"]
+      "@/*": ["src/*"],
+      "@app/*": ["src/app/*"],
+      "@api/*": ["src/api/*"],
+      "@provider/*": ["src/provider/*"],
+      "@mocks/*": ["src/mocks/*"],
+      "@common/*": ["src/common/*"]
     }
   },
   "include": ["vite.config.ts", "**/*.ts", "**/*.tsx"],

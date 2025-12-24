@@ -9,7 +9,10 @@ export const signInHandlers = [
     const body = (await request.json()) as SignInRequest
     const { email, password } = body
 
-    if (email !== 'test@test.com' && password !== '1q2w3e4r') {
+    if (
+      email !== import.meta.env.VITE_USER_EMAIL ||
+      password !== import.meta.env.VITE_USER_PASSWORD
+    ) {
       return HttpResponse.json(
         {
           errorMessage: '계정 정보가 일치하지 않습니다.'

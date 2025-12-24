@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router'
 import { User, LogIn } from 'lucide-react'
-import { tokenStorage } from '@/api/config'
+import { tokenStorage } from '@api/config'
 
 const AuthNav = () => {
   const location = useLocation()

@@ -1,6 +1,6 @@
-import Logo from '@/components/common/Logo'
-import Nav from '@/components/root/Nav'
-import AuthNav from '@/components/root/AuthNav'
+import Logo from '@common/components/Logo'
+import Nav from '@app/components/Nav'
+import AuthNav from '@app/components/AuthNav'
 
 const Header = () => {
   return (

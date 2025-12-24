@@ -22,7 +22,8 @@ export default defineConfig({
       '@app': path.resolve(__dirname, 'src/app'),
       '@api': path.resolve(__dirname, 'src/api'),
       '@provider': path.resolve(__dirname, 'src/provider'),
-      '@mocks': path.resolve(__dirname, 'src/mocks')
+      '@mocks': path.resolve(__dirname, 'src/mocks'),
+      '@common': path.resolve(__dirname, 'src/common')
     }
   }
 })
