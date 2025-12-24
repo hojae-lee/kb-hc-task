@@ -1,6 +1,7 @@
 import { StateCreator } from 'zustand'
 
 import { tokenStorage } from '@api/config'
+import { queryClient } from '@/libs/react-query'
 
 export type AuthSlice = {
   isAuthenticated: boolean
@@ -22,5 +23,6 @@ export const createAuthSlice: StateCreator<AuthSlice> = (set) => ({
   clearTokens: () => {
     tokenStorage.clearTokens()
     set({ isAuthenticated: false })
+    queryClient.clear()
   }
 })

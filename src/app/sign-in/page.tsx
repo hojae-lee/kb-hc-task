@@ -1,11 +1,11 @@
 import { useForm } from 'react-hook-form'
 import { Lock, Mail } from 'lucide-react'
 
-import Logo from '@common/components/Logo'
-import Label from '@common/components/Label'
-import Input from '@common/components/Input'
-import Button from '@common/components/Button'
-import Spinner from '@common/components/Spinner'
+import Logo from '@common/components/ui/Logo'
+import Label from '@common/components/ui/Label'
+import Input from '@common/components/ui/Input'
+import Button from '@common/components/ui/Button'
+import Spinner from '@common/components/ui/Spinner'
 
 import useSignIn from '@app/sign-in/hooks/useSignIn'
 

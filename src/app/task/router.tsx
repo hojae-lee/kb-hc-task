@@ -1,6 +1,6 @@
 import { lazy } from 'react'
 
-import { SuspenseProvider } from '@provider/SuspenseProvider'
+import { SuspenseWrapper } from '@common/components/wrapper/SuspenseWrapper'
 
 const TaskListPage = lazy(() => import('@app/task/page'))
 const TaskDetailPage = lazy(() => import('@app/task/[id]/page'))
@@ -9,17 +9,17 @@ export const taskRoutes = [
   {
     path: 'task',
     element: (
-      <SuspenseProvider>
+      <SuspenseWrapper>
         <TaskListPage />
-      </SuspenseProvider>
+      </SuspenseWrapper>
     )
   },
   {
     path: 'task/:id',
     element: (
-      <SuspenseProvider>
+      <SuspenseWrapper>
         <TaskDetailPage />
-      </SuspenseProvider>
+      </SuspenseWrapper>
     )
   }
 ]

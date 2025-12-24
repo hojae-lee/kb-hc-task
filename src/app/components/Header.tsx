@@ -1,4 +1,4 @@
-import Logo from '@common/components/Logo'
+import Logo from '@common/components/ui/Logo'
 import Nav from '@app/components/Nav'
 import AuthNav from '@app/components/AuthNav'
 

@@ -1,8 +1,8 @@
 import { Suspense } from 'react'
 
-import LoadingFallback from '@common/components/LoadingFallback'
+import LoadingFallback from '@common/components/ui/LoadingFallback'
 
-export const SuspenseProvider = ({
+export const SuspenseWrapper = ({
   children,
   fallback = <LoadingFallback />
 }: {

@@ -1,16 +1,7 @@
 import { delay, http, HttpResponse } from 'msw'
 
 import { API_URL } from '@api/dashboard'
-
-// 토큰 검증 헬퍼
-const verifyToken = (authHeader: string | null): boolean => {
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return false
-  }
-  const token = authHeader.replace('Bearer ', '')
-
-  return token.length > 0
-}
+import { verifyToken } from '@mocks/utils/verifyToken'
 
 export const dashboardHandlers = [
   http.get(API_URL, async ({ request }) => {

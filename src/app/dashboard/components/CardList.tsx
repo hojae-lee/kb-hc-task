@@ -1,12 +1,9 @@
-// CardList.tsx
 import { ClipboardList, Clock, CheckCircle } from 'lucide-react'
 
 import Card from '@app/dashboard/components/Card'
-import { useGetDashboard } from '@app/dashboard/hooks/useDashboard'
+import type { DashboardResponse } from '@api/dashboard/schema'
 
-const CardList = () => {
-  const { data } = useGetDashboard()
-
+const CardList = ({ data }: { data: DashboardResponse }) => {
   const stats = [
     {
       label: '일',
