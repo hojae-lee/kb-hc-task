@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+import { refresh } from '@api/sign-in'
+
 export const apiClient = axios.create({
   baseURL: '',
   headers: {
@@ -8,6 +10,7 @@ export const apiClient = axios.create({
   timeout: 5000
 })
 
+// 토큰 스토리지 (로컬 스토리지 기반으로 구현)
 export const tokenStorage = {
   getAccessToken: () => localStorage.getItem('accessToken'),
   setAccessToken: (token: string) => localStorage.setItem('accessToken', token),
@@ -42,28 +45,28 @@ apiClient.interceptors.response.use(
       originalRequest._retry = true
 
       const refreshToken = tokenStorage.getRefreshToken()
+      const { useAppStore } = await import('@/store')
+
       if (refreshToken) {
         try {
-          const response = await apiClient.post('/api/refresh', null, {
-            headers: { Authorization: `Bearer ${refreshToken}` }
-          })
+          const response = await refresh(refreshToken)
 
-          const { accessToken, refreshToken: newRefreshToken } = response.data
-          tokenStorage.setAccessToken(accessToken)
-          tokenStorage.setRefreshToken(newRefreshToken)
+          const { accessToken, refreshToken: newRefreshToken } = response
+          useAppStore.getState().setTokens(accessToken, newRefreshToken)
 
+          // 재호출 시 토큰 갱신
           originalRequest.headers['Authorization'] = `Bearer ${accessToken}`
           return apiClient(originalRequest)
         } catch (refreshError) {
-          // 에러 발생시 토큰 클리어 및 인증 에러 구분용 인자 throw
-          tokenStorage.clearTokens()
+          useAppStore.getState().clearTokens()
+
           return Promise.reject({
             ...(refreshError as Error),
             isAuthError: true
           })
         }
       } else {
-        tokenStorage.clearTokens()
+        useAppStore.getState().clearTokens()
         return Promise.reject({
           ...error,
           isAuthError: true

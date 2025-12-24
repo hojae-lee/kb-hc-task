@@ -1,11 +1,11 @@
 import { Link, useLocation } from 'react-router'
 import { User, LogIn } from 'lucide-react'
-import { tokenStorage } from '@api/config'
+
+import { useAppStore } from '@/store'
 
 const AuthNav = () => {
   const location = useLocation()
-  // todo: 로그인 상태값을 별도 store 로 처리 예정.
-  const isAuthenticated = !!tokenStorage.getAccessToken()
+  const isAuthenticated = useAppStore((state) => state.isAuthenticated)
 
   if (isAuthenticated) {
     return (
