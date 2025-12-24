@@ -16,12 +16,12 @@ export const dashboardHandlers = [
   http.get(API_URL, async ({ request }) => {
     const authHeader = request.headers.get('authorization')
 
-    // if (!verifyToken(authHeader)) {
-    return HttpResponse.json(
-      { errorMessage: '인증이 필요합니다.' },
-      { status: 401 }
-    )
-    // }
+    if (!verifyToken(authHeader)) {
+      return HttpResponse.json(
+        { errorMessage: '인증이 필요합니다.' },
+        { status: 401 }
+      )
+    }
 
     return HttpResponse.json({
       numOfTask: 10,
