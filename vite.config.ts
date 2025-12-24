@@ -11,7 +11,8 @@ export default defineConfig({
   plugins: [
     react({
       babel: {
-        plugins: [['babel-plugin-react-compiler']] // react compiler 플러그인
+        // react compiler (컴파일러 사용시 메모이제이션 문제 자동 해결이라서 메모이제이션을 별도로 처리할 필요가 없어짐)
+        plugins: [['babel-plugin-react-compiler']]
       }
     }),
     tsconfigPaths()

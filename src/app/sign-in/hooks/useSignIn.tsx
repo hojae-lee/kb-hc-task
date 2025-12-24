@@ -6,7 +6,11 @@ import { signIn } from '@api/sign-in'
 import { useToast } from '@common/hooks/useToast'
 import { useAppStore } from '@/store'
 
-export const useSignIn = () => {
+type UseSignInOptions = {
+  onError?: (error: AxiosError) => void
+}
+
+export const useSignIn = (options?: UseSignInOptions) => {
   const { toastMessage } = useToast()
   const navigate = useNavigate()
   const location = useLocation()
@@ -25,10 +29,17 @@ export const useSignIn = () => {
       navigate(redirectTo)
     },
     onError: (error) => {
-      const { response } = error as AxiosError
-      const { errorMessage } = response?.data as { errorMessage: string }
-      // 로그인 실패시 메시지 띄우기
-      toastMessage({ message: errorMessage, type: 'error' })
+      if (options?.onError) {
+        options.onError(error as AxiosError)
+      } else {
+        const { response } = error as AxiosError
+        const { errorMessage } = (response?.data as {
+          errorMessage: string
+        }) || {
+          errorMessage: '로그인에 실패했습니다.'
+        }
+        toastMessage({ message: errorMessage, type: 'error' })
+      }
     }
   })
 }
