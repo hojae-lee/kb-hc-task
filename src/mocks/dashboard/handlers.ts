@@ -1,4 +1,4 @@
-import { http, HttpResponse } from 'msw'
+import { delay, http, HttpResponse } from 'msw'
 
 import { API_URL } from '@api/dashboard'
 
@@ -14,6 +14,7 @@ const verifyToken = (authHeader: string | null): boolean => {
 
 export const dashboardHandlers = [
   http.get(API_URL, async ({ request }) => {
+    delay(500)
     const authHeader = request.headers.get('authorization')
 
     if (!verifyToken(authHeader)) {

@@ -2,7 +2,6 @@ import { createBrowserRouter, Outlet } from 'react-router'
 
 import Layout from '@app/layout'
 import NotFound from '@app/not-found'
-import { SuspenseProvider } from '@provider/SuspenseProvider'
 import { ProtectedRouteProvider } from '@provider/ProtectedRouteProvider'
 import { AuthErrorHandlerProvider } from '@provider/AuthErrorHanlderProvider'
 
@@ -19,9 +18,7 @@ const router = createBrowserRouter([
       <ProtectedRouteProvider>
         <AuthErrorHandlerProvider />
         <Layout>
-          <SuspenseProvider>
-            <Outlet />
-          </SuspenseProvider>
+          <Outlet />
         </Layout>
       </ProtectedRouteProvider>
     ),

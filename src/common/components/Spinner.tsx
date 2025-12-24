@@ -1,4 +1,4 @@
-import { Loader2 } from 'lucide-react'
+import { Loader } from 'lucide-react'
 
 type SpinnerProps = {
   size?: 'sm' | 'md' | 'lg'
@@ -13,7 +13,7 @@ const Spinner = ({ size = 'md', className = '' }: SpinnerProps) => {
   }
 
   return (
-    <Loader2
+    <Loader
       className={`${sizeClasses[size]} animate-spin text-current ${className}`}
     />
   )
