@@ -1,12 +1,8 @@
-// src/router.tsx
 import { createBrowserRouter, Outlet } from 'react-router'
 
 import Layout from '@/app/layout'
 import NotFound from '@/app/not-found'
 import { SuspenseProvider } from '@provider/SuspenseProvider'
-
-// root 페이지
-import { root } from '@app/router'
 
 // 각 도메인별 라우터 import
 import { dashboardRoutes } from '@app/dashboard/router'
@@ -25,7 +21,7 @@ const router = createBrowserRouter([
       </Layout>
     ),
     errorElement: <NotFound />,
-    children: [...root, ...dashboardRoutes, ...taskRoutes, ...userRoutes]
+    children: [...dashboardRoutes, ...taskRoutes, ...userRoutes]
   },
   ...signInRoute,
   {

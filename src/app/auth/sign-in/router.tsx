@@ -1,6 +1,6 @@
 import { lazy } from 'react'
 
-const SignInPage = lazy(() => import('@/app/auth/sign-in/page'))
+const SignInPage = lazy(() => import('@app/auth/sign-in/page'))
 
 export const signInRoute = [
   {

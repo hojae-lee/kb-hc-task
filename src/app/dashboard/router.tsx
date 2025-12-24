@@ -1,10 +1,10 @@
 import { lazy } from 'react'
 
-const DashboardPage = lazy(() => import('@/app/dashboard/page'))
+const DashboardPage = lazy(() => import('@app/dashboard/page'))
 
 export const dashboardRoutes = [
   {
-    path: 'dashboard',
+    index: true,
     element: <DashboardPage />
   }
 ]
