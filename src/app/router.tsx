@@ -2,9 +2,10 @@ import { lazy } from 'react'
 
 const RootPage = lazy(() => import('@/app/page'))
 
-const root = {
-  path: '/',
-  element: <RootPage />
-}
-
-export default root
+export const root = [
+  {
+    index: true,
+    path: '/',
+    element: <RootPage />
+  }
+]

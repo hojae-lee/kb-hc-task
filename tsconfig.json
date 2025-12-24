@@ -24,10 +24,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@app/*": ["src/app/*"],
-      "@common/*": ["common/*"],
-      "@api/*": ["src/api/*"],
-      "@provider/*": ["src/provider/*"]
+      "@app/*": ["./src/app/*"],
+      "@api/*": ["./src/api/*"],
+      "@provider/*": ["./src/provider/*"],
+      "@mocks/*": ["./src/mocks/*"]
     }
   },
   "include": ["vite.config.ts", "**/*.ts", "**/*.tsx"],
