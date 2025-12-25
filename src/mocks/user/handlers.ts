@@ -1,7 +1,7 @@
 import { delay, http, HttpResponse } from 'msw'
 
 import { API_URL } from '@api/user'
-import { verifyToken } from '@mocks/utils/verifyToken'
+import { verifyToken } from '@mocks/utils'
 
 export const userHandlers = [
   http.get(API_URL, async ({ request }) => {
