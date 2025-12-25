@@ -1,4 +1,5 @@
 import UserInfo from '@app/user/components/UserInfo'
+import LogoutButton from '@app/user/components/LogoutButton'
 
 import { useGetUser } from '@app/user/hooks/useUser'
 
@@ -15,6 +16,10 @@ const UserPage = () => {
       </div>
 
       <UserInfo data={data} />
+
+      <div className="flex justify-end">
+        <LogoutButton />
+      </div>
     </div>
   )
 }

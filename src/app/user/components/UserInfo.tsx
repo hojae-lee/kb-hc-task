@@ -14,16 +14,14 @@ const UserInfo = ({ data }: UserInfoProps) => {
         <div className="rounded-full bg-primary-100 p-3">
           <User className="h-6 w-6 text-primary-600" />
         </div>
-        <div className="flex-1 space-y-4">
+        <div className="flex flex-col gap-4">
           <div>
-            <Label>이름</Label>
-            <p className="mt-1 text-lg font-semibold text-disabled-900">
+            <p className="text-lg font-semibold text-disabled-900">
               {data.name}
             </p>
           </div>
           <div>
-            <Label>메모</Label>
-            <p className="mt-1 text-base text-disabled-700">{data.memo}</p>
+            <p className="text-base text-disabled-700">{data.memo}</p>
           </div>
         </div>
       </div>
