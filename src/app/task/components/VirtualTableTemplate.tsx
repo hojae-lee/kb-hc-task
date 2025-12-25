@@ -96,6 +96,7 @@ const VirtualTableTemplate = ({
                 top: 0,
                 left: 0,
                 width: '100%',
+                height: `${virtualRow.size}px`,
                 transform: `translateY(${virtualRow.start}px)`
               }}
             >
