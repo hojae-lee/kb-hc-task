@@ -1,2 +1,0 @@
-# kb-hc-task
-
