@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef } from 'react'
 
 type ButtonProps = ComponentPropsWithoutRef<'button'> & {
-  variant?: 'primary' | 'disabled'
+  variant?: 'primary' | 'disabled' | 'basic'
   fullWidth?: boolean
 }
 
@@ -18,7 +18,10 @@ const Button = ({
     primary: disabled
       ? 'bg-disabled-300 text-disabled-500 cursor-not-allowed'
       : 'bg-primary text-white hover:bg-primary-600 active:scale-[0.98] shadow-md hover:shadow-lg',
-    disabled: 'bg-disabled-300 text-disabled-500 cursor-not-allowed'
+    disabled: 'bg-disabled-300 text-disabled-500 cursor-not-allowed',
+    basic: disabled
+      ? 'border-2 cursor-not-allowed'
+      : 'border-2 hover:border-disabled-400 hover:bg-disabled-50 active:scale-[0.98]'
   }
   const widthClass = fullWidth ? 'w-full' : ''
 

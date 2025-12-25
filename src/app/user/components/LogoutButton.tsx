@@ -15,8 +15,9 @@ const LogoutButton = () => {
 
   return (
     <Button
+      variant="basic"
       onClick={handleLogout}
-      className="flex items-center gap-2 bg-red-500"
+      className="flex items-center gap-2 bg-red-500 text-white hover:bg-red-600"
     >
       <LogOut className="h-4 w-4" />
       로그아웃

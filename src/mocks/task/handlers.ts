@@ -38,7 +38,7 @@ export const taskHandlers = [
   }),
 
   http.get(`${API_URL}/:id`, async ({ request, params }) => {
-    await delay(500)
+    await delay(100)
     const authHeader = request.headers.get('authorization')
 
     if (!verifyToken(authHeader)) {
@@ -59,8 +59,11 @@ export const taskHandlers = [
       )
     }
 
-    return HttpResponse.json(task)
-
-    // ...
+    return HttpResponse.json({
+      id: task.id,
+      title: task.title,
+      memo: task.memo,
+      registerDatetime: new Date().toISOString()
+    })
   })
 ]
