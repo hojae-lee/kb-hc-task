@@ -9,13 +9,11 @@ export const enableMocking = async () => {
   return worker.start({
     // msw 사용시 의도하지 않는 요청이 가로채지는 경우가 있음.
     onUnhandledRequest: (request, print) => {
-      if (!request.url.includes('/api/')) {
-        console.log('/api/ 가 포함되지 않은 요청 url', request.url)
-        return
-      }
-
-      if (request.url.includes('.ts') || request.url.includes('.tsx')) {
-        console.log('TypeScript 파일 요청 url', request.url)
+      if (
+        !request.url.includes('/api/') ||
+        request.url.includes('.ts') ||
+        request.url.includes('.tsx')
+      ) {
         return
       }
 
