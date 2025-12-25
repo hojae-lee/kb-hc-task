@@ -35,8 +35,10 @@ const VirtualTableTemplate = ({
     estimateSize: () => 100
   })
 
+  const virtualItems = rowVirtualizer.getVirtualItems()
+
   useEffect(() => {
-    const [lastItem] = [...rowVirtualizer.getVirtualItems()].reverse()
+    const [lastItem] = [...virtualItems].reverse()
 
     if (!lastItem) return
 
@@ -52,7 +54,7 @@ const VirtualTableTemplate = ({
     fetchNextPage,
     allTasks.length,
     isFetchingNextPage,
-    rowVirtualizer.getVirtualItems()
+    virtualItems
   ])
 
   if (isLoading) {

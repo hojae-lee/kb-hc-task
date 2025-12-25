@@ -1,8 +1,8 @@
-// 개발 버전에서만 mocking 을 활성화 합니다.
 export const enableMocking = async () => {
-  if (process.env.NODE_ENV !== 'development') {
-    return
-  }
+  // 개발 버전에서만 mocking 을 활성화 합니다.
+  // if (process.env.NODE_ENV !== 'development') {
+  //   return
+  // }
 
   const { worker } = await import('@/mocks/browser')
 

@@ -1,7 +1,6 @@
 import { UserCircle } from 'lucide-react'
 
 import type { UserResponse } from '@api/user/schema'
-import Label from '@common/components/ui/Label'
 
 type UserInfoProps = {
   data: UserResponse

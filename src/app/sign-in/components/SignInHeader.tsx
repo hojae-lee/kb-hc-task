@@ -12,4 +12,3 @@ const SignInHeader = () => {
 }
 
 export default SignInHeader
-

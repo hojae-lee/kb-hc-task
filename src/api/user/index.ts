@@ -14,4 +14,3 @@ export const userKeys = {
 export const getUser = async (): Promise<UserResponse> => {
   return (await get(API_URL)) as UserResponse
 }
-

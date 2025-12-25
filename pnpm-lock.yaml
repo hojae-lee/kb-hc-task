@@ -15,7 +15,7 @@ importers:
         specifier: ^5.90.12
         version: 5.90.12(react@19.2.3)
       '@tanstack/react-virtual':
-        specifier: ^3.13.13
+        specifier: ^3.13.12
         version: 3.13.13(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@vitejs/plugin-react':
         specifier: ^5.1.2
